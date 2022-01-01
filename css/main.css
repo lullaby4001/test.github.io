@@ -1,0 +1,81 @@
+body {
+    font-family: 'ZCOOL XiaoWei', serif;
+    margin: 0;
+    background-color: #FEFDFD;
+    display: flex;
+    ;
+    align-items: stretch;
+}
+
+sup {
+    font-size: 50%;
+}
+
+@media (orientation:landscape) {
+    .tooltip:hover {
+        cursor: help;
+        position: relative;
+    }
+    .tooltip:hover span {
+        display: block;
+        font-size: 1vw;
+        padding: 6px;
+        white-space: pre-wrap;
+        width: 12vw;
+        z-index: 100;
+        background-color: #EDEDED;
+        color: black;
+        border-radius: 6px;
+        left: 2vw;
+        top: 4vw;
+        position: absolute;
+    }
+}
+
+.font {
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+.default-cusor {
+    cursor: default;
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    border-radius: 500px;
+    outline: none;
+    margin: 0 auto;
+    background-color: Transparent;
+}
+
+.color {
+    color: #FEFDFD;
+    background-color: #144674;
+}
+
+.border-color {
+    border-color: #144674;
+}
+
+.off-color {
+    color: #48739b;
+}
+
+table,
+td,
+th {
+    border: 1px solid #9c9c9c;
+}
+
+table {
+    margin: 14px auto;
+    padding: 7vh 0;
+    border-collapse: collapse;
+}
+
+.border-color {
+    border-color: #144674;
+}
