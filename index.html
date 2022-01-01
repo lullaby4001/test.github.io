@@ -288,18 +288,17 @@
         }
 
         function getNotes(){
-            // const dbref = ref(db);
 
             console.log(db);
             
-            get(ref(db, "TheNotes/" + currentPostItID))
+            get(ref(db, "TheNotes/" + postIts[i].id))
             .then((snapshot)=>{
                 if(snapshot.exists()){
-                    postIts.currentPostItID = snapshot.val().id;
+                    postIts[i].id = snapshot.val().id;
                     console.log(snapshot.val().id);
-                    postIts.num = snapshot.val().note_num;
+                    postIts[i].note_num = snapshot.val().note_num;
                     console.log(snapshot.val().note_num);
-                    postIts.value = snapshot.val().note;
+                    postIts[i].note = snapshot.val().note;
                     console.log(snapshot.val().note);
                 }
                 else{
