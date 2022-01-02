@@ -290,10 +290,11 @@
         function getNotes(){
 
             console.log(db);
-            
-            get(ref(db, "TheNotes/"))
-            console.log(db);
-            get(ref(db, "TheNotes/" + postIts.id))
+
+            const dbref = ref(getDatabase());
+            get(child(dbref, "TheNotes/${uid}"))
+            // console.log(dbref);
+            // get(ref(db, "TheNotes/" + uid))
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     postIts.id = snapshot.val().id;
