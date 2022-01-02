@@ -293,7 +293,7 @@
 
             const dbref = ref(getDatabase());
             get(child(dbref, "TheNotes/"))
-            // console.log(dbref);
+            console.log(dbref);
             get(ref(db, "TheNotes/" + uid))
             .then((snapshot)=>{
                 if(snapshot.exists()){
