@@ -296,6 +296,9 @@
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     console.log(snapshot.val());
+                    id = snapshot.val().id;
+                    num = snapshot.val().note_num;
+                    value = snapshot.val().note;
                 }
                 else{
                     alert('No Data Found');
@@ -303,7 +306,7 @@
             })
             .catch((error)=>{
                 alert('unsuccessful, error' + error);
-            // console.log(db);
+            
             // get(ref(db, "TheNotes/" + id))
             // .then((snapshot)=>{
             //     if(snapshot.exists()){
