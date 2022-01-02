@@ -226,8 +226,6 @@
 
         const db = getDatabase(app);
 
-        // var notes = document.getElementById('edit-post-it');
-
         var postBtn = document.getElementById("add-post-it");
         var delBtn = document.getElementById("delete-button");
 
@@ -296,9 +294,12 @@
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     console.log(snapshot.val());
-                    id = snapshot.val().id;
-                    num = snapshot.val().note_num;
-                    value = snapshot.val().note;
+                    document.getAttribute(data-uid).value = snapshot.val().id;
+                    // num = snapshot.val().note_num;
+                    document.getElementById(edit-post-it).value = snapshot.val().note;
+                    // getUID(month, year, day);
+                    // uid = snapshot.val().id;
+                    // value = snapshot.val().note;
                 }
                 else{
                     alert('No Data Found');
