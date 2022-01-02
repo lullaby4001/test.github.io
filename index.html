@@ -291,6 +291,8 @@
 
             console.log(db);
             
+            get(ref(db, "TheNotes/"))
+            console.log(db);
             get(ref(db, "TheNotes/" + postIts.id))
             .then((snapshot)=>{
                 if(snapshot.exists()){
