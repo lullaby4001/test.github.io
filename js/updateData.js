@@ -126,7 +126,7 @@ function fillInMonth(thisYear, thisMonth) {
     //將月曆表格從0填到41
     let days = document.getElementsByTagName("td"); //將td標籤放入days物件集合中
     var today = new Date();
-
+    console.log(days)
     var firstDateOfThisMonth = new Date(thisYear, thisMonth, 1); //建立今年今月1日的 Date日期物件
     var firstDateDayOfThisMonth = firstDateOfThisMonth.getDay(); //取得今年今月1日是禮拜幾
     // console.log(firstDateDayOfThisMonth);
