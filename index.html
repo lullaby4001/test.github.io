@@ -289,12 +289,22 @@
 
         function getNotes(){
 
-            // console.log(db);
+            console.log(db);
 
             // const dbref = ref(getDatabase());
             get(ref(db, "TheNotes/"))
-            console.log(db);
-            get(ref(db, "TheNotes/" + id))
+            .then((snapshot)=>{
+                if(snapshot.exists()){
+                    console.log(snapshot.val());
+                }
+                else{
+                    alert('No Data Found');
+                }
+            })
+            .catch((error)=>{
+                alert('unsuccessful, error' + error);
+            // console.log(db);
+            // get(ref(db, "TheNotes/" + id))
             // .then((snapshot)=>{
             //     if(snapshot.exists()){
             //         id = snapshot.val().id;
@@ -303,14 +313,13 @@
             //         console.log(snapshot.val().note_num);
             //         value = snapshot.val().note;
             //         console.log(snapshot.val().note);
-            //     }
             //     else{
             //         alert('No Data Found');
             //     }
             // })
             // .catch((error)=>{
             //     alert('unsuccessful, error' + error);
-            // })
+            })
         }
 
         getNotes();
