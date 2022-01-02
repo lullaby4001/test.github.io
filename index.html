@@ -294,9 +294,9 @@
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     console.log(snapshot.val());
-                    document.getAttribute(data-uid).value = snapshot.val().id;
+                    document.getAttribute("data-uid").value = snapshot.val().id;
                     // num = snapshot.val().note_num;
-                    document.getElementById(edit-post-it).value = snapshot.val().note;
+                    document.getElementById("edit-post-it").value = snapshot.val().note;
                     // getUID(month, year, day);
                     // uid = snapshot.val().id;
                     // value = snapshot.val().note;
