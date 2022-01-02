@@ -292,9 +292,9 @@
             console.log(db);
 
             const dbref = ref(getDatabase());
-            get(child(dbref, "TheNotes/id/"))
+            get(ref(dbref, "TheNotes/id/"))
             console.log(dbref);
-            get(ref(db, "TheNotes/id/" + id))
+            get(ref(dbref, "TheNotes/id/" + id))
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     id = snapshot.val().id;
