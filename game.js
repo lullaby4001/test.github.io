@@ -70,10 +70,10 @@ function play() {
     let bspriteHeight = 104 / brows; // 圖片高度除格數
 
     // 墜毀圖片切割設定
-    let dcols = 6;
-    let drows = 1;
-    let dspriteWidth = 762 / dcols; // 圖片寬度除格數
-    let dspriteHeight = 127 / drows; // 圖片高度除格數
+    let dcols = 1;
+    let drows = 6;
+    let dspriteWidth = 127 / dcols; // 圖片寬度除格數
+    let dspriteHeight = 762 / drows; // 圖片高度除格數
       
 
     // 圖片切割的起始點
@@ -143,6 +143,8 @@ function play() {
                     || bY + bird.height >= cvs.height - fg.height 
                     || bY <= 0) {
                 alive = false;
+				frameDrawn = 0;
+				currentFrame = 0;
             }
 
             if (pipe[i].x == 5) {
@@ -183,6 +185,8 @@ function play() {
 
             if (Hp == 0) {
                 alive = false;
+				currentFrame = 0;
+				frameDrawn = 0;
             }
         }
 
@@ -217,20 +221,8 @@ function play() {
         else if (alive == false) {
             ctx.drawImage(fg, 0, cvs.height - fg.height);
             bgm.pause();
-            frameDrawn = 0;
 
-            // 小鳥墜毀
-            currentFrame = currentFrame % dtotalFrames;
-            srcY = currentFrame * dspriteHeight;
-
-            ctx.drawImage(boom, srcX, srcY, 
-                dspriteWidth, dspriteHeight, bX, bY, dspriteWidth, dspriteHeight);
-
-            frameDrawn++;
-            if(frameDrawn >= 10){
-                currentFrame++;
-                frameDrawn = 0;
-            }
+            
 
             startGame.style.display = "none";
             startGame.innerHTML = "<p>RETRY</p>";
@@ -244,6 +236,8 @@ function play() {
             document.getElementById("bestScore").classList.remove("display-none")
             
             hit.play();
+			srcY = 0;
+            requestAnimationFrame(die);
             // frameDrawn = 0;
         }
     }
@@ -257,6 +251,26 @@ function play() {
         localStorage.setItem("best", score.best);
     }
 
+	function die() {
+		if(currentFrame <= dtotalFrames){
+			ctx.drawImage(bg, 0, 0);
+            ctx.drawImage(fg, 0, cvs.height - fg.height);
+			// 小鳥墜毀
+			srcY = currentFrame * dspriteWidth;
+			// console.log(srcX);
+
+			ctx.drawImage(boom, srcX, srcY,
+				dspriteWidth, dspriteHeight, bX*1/2, bY-dspriteWidth*1/2, dspriteWidth, dspriteHeight);
+
+			frameDrawn++;
+			if(frameDrawn >= 10){
+				currentFrame++;
+				frameDrawn = 0;
+			}
+			requestAnimationFrame(die);
+		}
+        
+	}
     draw();
 }
 
