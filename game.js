@@ -221,8 +221,8 @@ function play() {
         else if (alive == false) {
             ctx.drawImage(fg, 0, cvs.height - fg.height);
             bgm.pause();
-
-            
+            hit.play();
+            frameDrawn = 0;
 
             startGame.style.display = "none";
             startGame.innerHTML = "<p>RETRY</p>";
@@ -235,10 +235,8 @@ function play() {
             document.getElementById("score").classList.remove("display-none")
             document.getElementById("bestScore").classList.remove("display-none")
             
-            hit.play();
 			srcY = 0;
             requestAnimationFrame(die);
-            // frameDrawn = 0;
         }
     }
     
@@ -254,7 +252,20 @@ function play() {
 	function die() {
 		if(currentFrame <= dtotalFrames){
 			ctx.drawImage(bg, 0, 0);
+
+            // 繪製水管
+            for (var i = 0; i < pipe.length; i++) {
+                constant = pipeNorth.height + gap;
+                ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+                ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+            }
+		    // 繪製生命值
+            for (var i = 0; i < lifes.length; i++) {
+                ctx.drawImage(life, lifes[i].x, lifes[i].y);
+            }
+
             ctx.drawImage(fg, 0, cvs.height - fg.height);
+            
 			// 小鳥墜毀
 			srcY = currentFrame * dspriteWidth;
 			// console.log(srcX);
