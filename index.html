@@ -1,23 +1,39 @@
 <!DOCTYPE html>
+<html>
 
-<html lang="en">
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Note My Life - 首頁</title> 
-    
-    </head>
-    <body>
-    <table width="250" border="1" align="center">
-        <tr valign="top">
-            <td align="center">
-                <p>Note My Life</p>
-                <div align="center">
-                    <p align="center">
-                        <a href="index.php">進入</a><br>
-                    </p>
-                </div>
-            </td>
-        </tr>
-    </table>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>DASHING BIRDIE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/deer.png">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="div">
+
+        <div id="title">DASHING BIRDIE</div>
+
+        <button id="ruleButton" class="shape"><p>RULE</p></button>
+
+        <div id="rules">
+            (1) Press "UP" to move.</br>
+            (2) Failed when bump into the barriers and boundary.</br>
+            (3) Collect life points to matain your HP.</br>
+        </div>
+
+        <button id="startButton" class="shape"><p>START</p></button>
+
+        <div id="gameover" class="display-none">GAME OVER</div>
+        <div id = "score" class="display-none"></div>
+        <div id = "bestScore" class="display-none"></div>
+
+        <canvas id="canvas" width="700" height="512"></canvas>
+
+        <script type="text/javascript" src="game.js"></script>
+
+    </div>
+</body>
+
 </html>
